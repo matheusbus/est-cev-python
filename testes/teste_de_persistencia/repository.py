@@ -7,7 +7,7 @@ class Repository:
 
     def save(self, person):
         cursor = self.connection.cursor()
-        cursor.execute('INSERT INTO tb_person (nome, idade) VALUES (%s, %s)', (person.name, person.age))
+        cursor.execute('INSERT INTO tb_person (id, nome, age) VALUES (%s, %s, %s)', (person.uuid, person.name, person.age))
         self.connection.commit()
         cursor.close()
 
